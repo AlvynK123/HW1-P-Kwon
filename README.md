@@ -34,14 +34,29 @@ mvn clean compile
 
 ## How to Run
 
-### Index Documents
+### Part 1: Index Initial 100 Documents
 ```bash
 mvn exec:java -Dexec.mainClass="com.searchengine.LuceneApp"
 ```
 
-### Search Documents
+### Part 1: Search Documents (5 keyword test)
 ```bash
 mvn exec:java -Dexec.mainClass="com.searchengine.SearchTest"
+```
+
+### Part 2: Add Single Web Document
+```bash
+mvn exec:java -Dexec.mainClass="com.searchengine.AddSingleDocument"
+```
+
+### Part 3: Add 100 More Documents
+```bash
+mvn exec:java -Dexec.mainClass="com.searchengine.Add100Documents"
+```
+
+### Part 4: Performance Measurement
+```bash
+mvn exec:java -Dexec.mainClass="com.searchengine.PerformanceMeasurement"
 ```
 
 ## Assignment Progress
