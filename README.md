@@ -70,11 +70,35 @@ mvn exec:java -Dexec.mainClass="com.searchengine.SearchTest"
   - Original documents still searchable (confirmed with 'topic' keyword)
 - **Total Documents**: 202 (101 original + 1 HTML + 100 new)
 
-### Part 4: Performance Measurement (To Do)
-- TODO
+### Part 4: Performance Measurement 
+- Measured indexing performance for K = 100, 200, 300, 400, 500 documents
+- **Results saved to**: `performance_results.csv`
+- **Key Findings**:
+  - K=100: 141 ms total, 1.41 ms/doc (includes JVM warmup)
+  - K=200: 42 ms total, 0.21 ms/doc
+  - K=300: 41 ms total, 0.14 ms/doc
+  - K=400: 42 ms total, 0.11 ms/doc
+  - K=500: 46 ms total, 0.09 ms/doc
+- **Observation**: Average time per document decreases as corpus size increases (better amortization of indexing overhead)
 
 ### Part 5: Discussion and Analysis (To Do)
 - TODO
+
+## Performance Summary
+| Operation | Documents | Time (ms) | Avg per Doc (ms) |
+|-----------|-----------|-----------|------------------|
+| Initial Index | 101 | 36 | 0.36 |
+| Add Single Doc | 1 | 31 | 31.00 |
+| Add 100 Docs | 100 | 37 | 0.37 |
+
+### Performance Measurement (Part 4)
+| K Documents | Actual Docs | Total Time (ms) | Avg Time/Doc (ms) |
+|-------------|-------------|-----------------|-------------------|
+| 100 | 100 | 141 | 1.41 |
+| 200 | 200 | 42 | 0.21 |
+| 300 | 300 | 41 | 0.14 |
+| 400 | 400 | 42 | 0.11 |
+| 500 | 500 | 46 | 0.09 |
 
 ## Technologies Used
 - Apache Lucene 9.9.1

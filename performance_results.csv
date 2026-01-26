@@ -1,0 +1,6 @@
+K (Target Docs),Actual Docs Indexed,Total Time (ms),Avg Time per Doc (ms)
+100,100,141,1.41
+200,200,42,0.21
+300,300,41,0.14
+400,400,42,0.11
+500,500,46,0.09

@@ -1,0 +1,13 @@
+Title: Performance Test Document 488
+Author: TestBot 8
+Date: 2026-01-13
+Category: Performance Testing Batch
+
+This is performance test document number 488 for measuring indexing speed.
+Content includes various topics: optimization, benchmarking, scalability testing.
+
+Keywords: performance, testing, benchmark, optimization, scalability, 
+throughput, latency, efficiency, measurement, metrics
+
+Document 488 is used to evaluate the search engine's indexing performance
+as the corpus size grows from 100 to 500 documents.
