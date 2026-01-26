@@ -52,7 +52,7 @@ mvn exec:java -Dexec.mainClass="com.searchengine.SearchTest"
 - Tested search with 5 example keywords: search, lucene, information, document, indexing
 - All keywords found in 101 documents (100 .txt + 1 .sh file)
 
-### Part 2: Add Single Document (In Progress)
+### Part 2: Add Single Document
 - Web Document Used: https://catalog.gatech.edu/programs/intelligence-information-internetworks-computer-science-bs/
 - Successful Indexing
 - Searched for unique keywords to prove it was indexed
