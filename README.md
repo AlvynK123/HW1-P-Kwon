@@ -53,7 +53,9 @@ mvn exec:java -Dexec.mainClass="com.searchengine.SearchTest"
 - All keywords found in 101 documents (100 .txt + 1 .sh file)
 
 ### Part 2: Add Single Document (In Progress)
-- TODO
+- Web Document Used: https://catalog.gatech.edu/programs/intelligence-information-internetworks-computer-science-bs/
+- Successful Indexing
+- Searched for unique keywords to prove it was indexed
 
 ### Part 3: Add 100 More Documents (To Do)
 - TODO
