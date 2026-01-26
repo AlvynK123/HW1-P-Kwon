@@ -1,0 +1,16 @@
+cat > .gitignore << 'EOF'
+# Maven
+target/
+*.class
+
+# Index files (generated)
+data/index/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+EOF

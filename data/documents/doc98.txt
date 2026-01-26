@@ -1,0 +1,7 @@
+Title: Document 98
+Author: Author 8
+Date: 2024-01-15
+
+This is document number 98. It contains information about topic 3.
+Some keywords: search engine lucene information retrieval indexing
+Document 98 discusses various aspects of text processing and search.

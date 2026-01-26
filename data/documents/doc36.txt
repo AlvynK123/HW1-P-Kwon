@@ -1,0 +1,7 @@
+Title: Document 36
+Author: Author 6
+Date: 2024-01-9
+
+This is document number 36. It contains information about topic 1.
+Some keywords: search engine lucene information retrieval indexing
+Document 36 discusses various aspects of text processing and search.

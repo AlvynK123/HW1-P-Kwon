@@ -1,0 +1,7 @@
+Title: Document 75
+Author: Author 5
+Date: 2024-01-20
+
+This is document number 75. It contains information about topic 0.
+Some keywords: search engine lucene information retrieval indexing
+Document 75 discusses various aspects of text processing and search.

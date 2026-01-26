@@ -1,0 +1,7 @@
+Title: Document 95
+Author: Author 5
+Date: 2024-01-12
+
+This is document number 95. It contains information about topic 0.
+Some keywords: search engine lucene information retrieval indexing
+Document 95 discusses various aspects of text processing and search.

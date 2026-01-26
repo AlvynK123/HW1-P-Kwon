@@ -1,0 +1,7 @@
+Title: Document 73
+Author: Author 3
+Date: 2024-01-18
+
+This is document number 73. It contains information about topic 3.
+Some keywords: search engine lucene information retrieval indexing
+Document 73 discusses various aspects of text processing and search.

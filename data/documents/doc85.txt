@@ -1,0 +1,7 @@
+Title: Document 85
+Author: Author 5
+Date: 2024-01-2
+
+This is document number 85. It contains information about topic 0.
+Some keywords: search engine lucene information retrieval indexing
+Document 85 discusses various aspects of text processing and search.

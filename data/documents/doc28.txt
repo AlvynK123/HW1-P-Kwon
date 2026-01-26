@@ -1,0 +1,7 @@
+Title: Document 28
+Author: Author 8
+Date: 2024-01-1
+
+This is document number 28. It contains information about topic 3.
+Some keywords: search engine lucene information retrieval indexing
+Document 28 discusses various aspects of text processing and search.

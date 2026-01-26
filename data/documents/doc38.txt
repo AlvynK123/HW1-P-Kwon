@@ -1,0 +1,7 @@
+Title: Document 38
+Author: Author 8
+Date: 2024-01-11
+
+This is document number 38. It contains information about topic 3.
+Some keywords: search engine lucene information retrieval indexing
+Document 38 discusses various aspects of text processing and search.

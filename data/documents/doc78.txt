@@ -1,0 +1,7 @@
+Title: Document 78
+Author: Author 8
+Date: 2024-01-23
+
+This is document number 78. It contains information about topic 3.
+Some keywords: search engine lucene information retrieval indexing
+Document 78 discusses various aspects of text processing and search.

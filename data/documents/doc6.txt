@@ -1,0 +1,7 @@
+Title: Document 6
+Author: Author 6
+Date: 2024-01-7
+
+This is document number 6. It contains information about topic 1.
+Some keywords: search engine lucene information retrieval indexing
+Document 6 discusses various aspects of text processing and search.

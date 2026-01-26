@@ -1,0 +1,7 @@
+Title: Document 3
+Author: Author 3
+Date: 2024-01-4
+
+This is document number 3. It contains information about topic 3.
+Some keywords: search engine lucene information retrieval indexing
+Document 3 discusses various aspects of text processing and search.

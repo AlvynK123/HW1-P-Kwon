@@ -1,0 +1,7 @@
+Title: Document 84
+Author: Author 4
+Date: 2024-01-1
+
+This is document number 84. It contains information about topic 4.
+Some keywords: search engine lucene information retrieval indexing
+Document 84 discusses various aspects of text processing and search.

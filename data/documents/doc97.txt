@@ -1,0 +1,7 @@
+Title: Document 97
+Author: Author 7
+Date: 2024-01-14
+
+This is document number 97. It contains information about topic 2.
+Some keywords: search engine lucene information retrieval indexing
+Document 97 discusses various aspects of text processing and search.

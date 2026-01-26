@@ -1,0 +1,7 @@
+Title: Document 4
+Author: Author 4
+Date: 2024-01-5
+
+This is document number 4. It contains information about topic 4.
+Some keywords: search engine lucene information retrieval indexing
+Document 4 discusses various aspects of text processing and search.

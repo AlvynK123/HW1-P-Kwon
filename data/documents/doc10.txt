@@ -1,0 +1,7 @@
+Title: Document 10
+Author: Author 0
+Date: 2024-01-11
+
+This is document number 10. It contains information about topic 0.
+Some keywords: search engine lucene information retrieval indexing
+Document 10 discusses various aspects of text processing and search.

@@ -1,0 +1,7 @@
+Title: Document 16
+Author: Author 6
+Date: 2024-01-17
+
+This is document number 16. It contains information about topic 1.
+Some keywords: search engine lucene information retrieval indexing
+Document 16 discusses various aspects of text processing and search.

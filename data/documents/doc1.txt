@@ -1,0 +1,7 @@
+Title: Document 1
+Author: Author 1
+Date: 2024-01-2
+
+This is document number 1. It contains information about topic 1.
+Some keywords: search engine lucene information retrieval indexing
+Document 1 discusses various aspects of text processing and search.

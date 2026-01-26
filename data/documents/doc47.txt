@@ -1,0 +1,7 @@
+Title: Document 47
+Author: Author 7
+Date: 2024-01-20
+
+This is document number 47. It contains information about topic 2.
+Some keywords: search engine lucene information retrieval indexing
+Document 47 discusses various aspects of text processing and search.

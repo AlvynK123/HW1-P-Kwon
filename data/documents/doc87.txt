@@ -1,0 +1,7 @@
+Title: Document 87
+Author: Author 7
+Date: 2024-01-4
+
+This is document number 87. It contains information about topic 2.
+Some keywords: search engine lucene information retrieval indexing
+Document 87 discusses various aspects of text processing and search.
