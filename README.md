@@ -211,7 +211,7 @@ mvn exec:java -Dexec.mainClass="com.searchengine.ShowIndexEntries"
 - HTML content extraction using JSoup library
 - Multi-threaded architecture for parallel crawling
 
-### Screenshots
+### (c) Screenshots
 
 #### Part 1: Initial Indexing
 ![Part 1 Indexing - Image 1](screenshots/screenshotp1_lucene1.png)
