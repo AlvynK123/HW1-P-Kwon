@@ -8,6 +8,11 @@
 ## Project Description
 A toy search engine built with Apache Lucene 9.9.1 that indexes and searches text documents.
 
+## Technologies Used
+- Apache Lucene 9.9.1
+- Java 21
+- Maven 3.9.12
+
 ## Project Structure
 ```
 HW1-P-Kwon/
@@ -16,14 +21,24 @@ HW1-P-Kwon/
 │       └── java/
 │           └── com/
 │               └── searchengine/
-│                   ├── Indexer.java        # Indexes documents
-│                   ├── Searcher.java       # Searches the index
-│                   ├── LuceneApp.java      # Main indexing app
-│                   └── SearchTest.java     # Search testing app
+│                   ├── Indexer.java                  # Indexes documents
+│                   ├── Searcher.java                 # Searches the index
+│                   ├── LuceneApp.java                # Main indexing app (Part 1)
+│                   ├── SearchTest.java               # Search testing app (Part 1)
+│                   ├── AddSingleDocument.java        # Add single document (Part 2)
+│                   ├── Add100Documents.java          # Add batch of documents (Part 3)
+│                   ├── PerformanceMeasurement.java   # Performance testing (Part 4)
+│                   └── ShowIndexEntries.java         # Display index entries
 ├── data/
-│   ├── documents/          # Document collection (100+ docs)
+│   ├── documents/          # Document collection (500+ docs)
+│   │   ├── doc1.txt - doc100.txt           # Original batch
+│   │   ├── document_101.txt - document_200.txt  # Batch 2
+│   │   ├── perf_test_201.txt - perf_test_500.txt # Batch 3
+│   │   └── info_intel_thread.html          # Web document
 │   └── index/              # Lucene index (generated)
-├── pom.xml                 # Maven configuration
+├── screenshots/            # Command-line screenshots
+├── pom.xml                # Maven configuration
+├── performance_results.csv # Performance data (Excel format)
 └── README.md
 ```
 
@@ -73,12 +88,13 @@ mvn exec:java -Dexec.mainClass="com.searchengine.ShowIndexEntries"
 - **Results**: All keywords found in 100 documents 
 - **Performance**: Indexed 101 documents in 37 ms (100 .txt + 1 .sh file)
 
-### Part 2: Add Single Document
-- Web Document Used: https://catalog.gatech.edu/programs/intelligence-information-internetworks-computer-science-bs/
-- **Results**: Successfully indexed in 31 ms
-- **Performance**: All keywords ["Georgia", "Thread", "Intelligence", "Internetworks", "curriculum"] found in document. Tiem taken was 29 ms.
-- **Verification**: Searched for unique keywords (Georgia, Thread, Intelligence, Internetworks, curriculum)
-- Each keyword found in exactly 1 document, proving successful indexing
+### Part 2: Add Single Document ✅
+- **Web Document**: Georgia Tech CS Curriculum HTML page
+  - Source: https://catalog.gatech.edu/programs/intelligence-information-internetworks-computer-science-bs/
+  - File: `info_intel_thread.html`
+- **Performance**: Document indexed in 29 ms
+- **Verification**: All unique keywords (Georgia, Thread, Intelligence, Internetworks, curriculum) found in exactly 1 document
+- **Total Documents in Index**: 102 (101 from Part 1 + 1 HTML)
 
 ### Part 3: Add 100 More Documents
 - Created 100 new research documents (document_101.txt to document_200.txt)
@@ -163,6 +179,38 @@ mvn exec:java -Dexec.mainClass="com.searchengine.ShowIndexEntries"
 
 ## Deliverables 
 
+### (b) Crawler Design Discussion
+
+**Note:** This implementation does not include a web crawler. Documents were manually placed in the `data/documents/` directory for indexing.
+
+**Why No Crawler:**
+- Focus was on core indexing and search functionality
+- Manual document placement allowed for controlled testing and performance measurement
+- Simpler setup for educational purposes
+
+**If a Crawler Were Implemented:**
+
+**Pros:**
+- Automated document collection from websites
+- Can continuously update the index with fresh content
+- Scalable to large document collections
+- Can follow links to discover new pages
+
+**Cons:**
+- Requires respecting robots.txt and politeness policies
+- Need to handle duplicate content and URL normalization
+- Must manage crawl rate to avoid overloading servers
+- Requires error handling for network issues and invalid pages
+- Storage and bandwidth considerations
+
+**Suggested Crawler Design:**
+- Breadth-first crawling with priority queue
+- URL deduplication using hash set
+- Configurable politeness delay (e.g., 1 second between requests)
+- Support for robots.txt parsing
+- HTML content extraction using JSoup library
+- Multi-threaded architecture for parallel crawling
+
 ### Screenshots
 
 #### Part 1: Initial Indexing
@@ -237,8 +285,3 @@ mvn exec:java -Dexec.mainClass="com.searchengine.ShowIndexEntries"
 | absence | 1 |
 
 ![Script for Example Index Entries](src/main/java/com/searchengine/screenshotexampleindex.png)
-
-## Technologies Used
-- Apache Lucene 9.9.1
-- Java 21
-- Maven 3.9.12
