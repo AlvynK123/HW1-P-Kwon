@@ -94,7 +94,7 @@ mvn exec:java -Dexec.mainClass="com.searchengine.ShowIndexEntries"
 - **Results**: All keywords found in 100 documents 
 - **Performance**: Indexed 101 documents in 37 ms (100 .txt + 1 .sh file)
 
-### Part 2: Add Single Document ✅
+### Part 2: Add Single Document 
 - **Web Document**: Georgia Tech CS Curriculum HTML page
   - Source: https://catalog.gatech.edu/programs/intelligence-information-internetworks-computer-science-bs/
   - File: `info_intel_thread.html`
