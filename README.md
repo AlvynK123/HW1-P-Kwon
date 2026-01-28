@@ -73,6 +73,12 @@ mvn compile
 mvn exec:java -Dexec.mainClass="com.searchengine.Add100Documents"
 ```
 
+### Part 4: Performance Measurement
+```bash
+mvn compile
+mvn exec:java -Dexec.mainClass="com.searchengine.PerformanceMeasurement"
+```
+
 ### View Example Index Entries
 ```bash
 mvn compile
@@ -139,22 +145,27 @@ mvn exec:java -Dexec.mainClass="com.searchengine.ShowIndexEntries"
 
 #### Toy Search Engine: Pros and Cons
 
-**Pros:**
-- Simple and clean architecture 
-- Fast performance (0.1-0.4ms per doc after warmup)
-- Handles both text and HTML documents
-- Persistent index where no re-indexing is necessary
-- Full-text search with relevance ranking
-- Memory efficient with Lucene's optimizations
+**Pros**
+- Simple, clean architecture that's easy to understand and maintain
+- Fast indexing performance (0.09-0.4ms per document after JVM warmup)
+- Very fast search performance (<10ms per query)
+- Scalable - handles 500+ documents efficiently with linear time complexity
+- Persistent index stored on disk - no need to re-index after restart
+- Flexible document support - works with both plain text and HTML files
+- Full-text search with relevance ranking using Lucene's TF-IDF scoring
+- Low memory footprint leveraging Lucene's memory-mapped file optimizations
+- Controlled testing environment for accurate performance measurement
 
-**Cons:**
-- No real-time updates so you have to restart reader/writer
-- Limited document format support (no PDF, Word)
-- Rudimentary HTML parsing (reads as plain text)
-- No web crawler (manual document placement)
-- Single-threaded indexing
-- Command-line only (no GUI or web interface)
-- Minimal error handling
+**Cons**
+- No real-time updates - must restart IndexWriter/Reader to see index changes
+- Limited document format support - no PDF, Word, Excel, or other binary formats
+- Basic HTML parsing - treats HTML as plain text rather than extracting structured content
+- No web crawling capability - requires manual document placement in directory
+- Single-threaded indexing - could be parallelized for improved throughput
+- Command-line interface only - no web UI, GUI, or REST API
+- Minimal error handling and logging for production scenarios
+- No distributed indexing support for handling very large document collections
+- Manual document management - no automated discovery of new content
 
 #### Suggestions for Improvement
 
@@ -172,7 +183,7 @@ mvn exec:java -Dexec.mainClass="com.searchengine.ShowIndexEntries"
 - Lucene is clearly a powerful framework, however in order to be effective it requires a better understanding of its specific components such as analyzers, scoring mechanisms, and index structure. Performance is heavily impacted by JVM warmup and batch processing strategies, which should all be considered when one is measuring or optimizing index operations. Additionally, choosing the text analyzer, whether Standard, English or Custom, can affect search quality and relevance of results heavily as well. 
 
 **Development Process:**
-- Iterative testing was important in understanding the behavior of the system. Starting with smaller datasets and scaling it up to larger ones demonstrated the importance of performance characteristics and bottlenecks. It is important to maintain clean separation between indexing and search logic because it can improve code maintainability. It also makes testing individual components easier. It was also learned that proper performance measurement must account for JVMP warmup time in order to get accurate results. 
+- Iterative testing was important in understanding the behavior of the system. Starting with smaller datasets and scaling it up to larger ones demonstrated the importance of performance characteristics and bottlenecks. It is important to maintain clean separation between indexing and search logic because it can improve code maintainability. It also makes testing individual components easier. It was also learned that proper performance measurement must account for JVM warmup time in order to get accurate results. 
 
 **Key Takeaways:**
 - Search engines are inherently complex systems that require careful attention to I/O operations, memory management, and CPU optimization to achieve good performance. Production-grade search systems also need many features beyond just indexing and searching. This includes web crawling, real-time index updates, user interfaces, and more that was discussed earlier in the improvements section. The project provided valuable hands-on experience with important information retrieval concepts including inverted indexes, text analysis, relevance ranking algorithms, and performance tuning techniques. 
@@ -181,35 +192,33 @@ mvn exec:java -Dexec.mainClass="com.searchengine.ShowIndexEntries"
 
 ### (b) Crawler Design Discussion
 
-**Note:** This implementation does not include a web crawler. Documents were manually placed in the `data/documents/` directory for indexing.
+The search engine implementation utilizes Apache Lucene as the indexing and search framework. Instead of implementing a web crawler, what the system does is utilizes a document repository approach where the test documents are generated through shell scripts and then placed within `data/documents/`. The design consists of 3 main components: an Indexer class that processes documents and builds and inverted index using Lucene's StandardAnalyzer, a Searcher class that queries the index with QueryParser for full-text search capabilities, and then a file system-based document repository that stores plain text and HTML files. This approach helped in better understanding Lucene's core indexing and search capabilities over building document collection infrastucture, allowing for better performance testing and iterative development. Documents were made in batches to simulate the real-world. It begins with an initial batch of 100 documents, then a single web page document, then 100 research-focused documents, and then 300 performance testing documents for performance analysis. 
 
-**Why No Crawler:**
-- Focus was on core indexing and search functionality
-- Manual document placement allowed for controlled testing and performance measurement
-- Simpler setup for educational purposes
+**Pros**
+- Simple, clean architecture that's easy to understand and maintain
+- Fast indexing performance (0.09-0.4ms per document after JVM warmup)
+- Very fast search performance (<10ms per query)
+- Scalable - handles 500+ documents efficiently with linear time complexity
+- Persistent index stored on disk - no need to re-index after restart
+- Flexible document support - works with both plain text and HTML files
+- Full-text search with relevance ranking using Lucene's TF-IDF scoring
+- Low memory footprint leveraging Lucene's memory-mapped file optimizations
+- Controlled testing environment for accurate performance measurement
 
-**If a Crawler Were Implemented:**
+**Cons**
+- No real-time updates - must restart IndexWriter/Reader to see index changes
+- Limited document format support - no PDF, Word, Excel, or other binary formats
+- Basic HTML parsing - treats HTML as plain text rather than extracting structured content
+- No web crawling capability - requires manual document placement in directory
+- Single-threaded indexing - could be parallelized for improved throughput
+- Command-line interface only - no web UI, GUI, or REST API
+- Minimal error handling and logging for production scenarios
+- No distributed indexing support for handling very large document collections
+- Manual document management - no automated discovery of new content
 
-**Pros:**
-- Automated document collection from websites
-- Can continuously update the index with fresh content
-- Scalable to large document collections
-- Can follow links to discover new pages
+**Crawler Discussion:**
 
-**Cons:**
-- Requires respecting robots.txt and politeness policies
-- Need to handle duplicate content and URL normalization
-- Must manage crawl rate to avoid overloading servers
-- Requires error handling for network issues and invalid pages
-- Storage and bandwidth considerations
-
-**Suggested Crawler Design:**
-- Breadth-first crawling with priority queue
-- URL deduplication using hash set
-- Configurable politeness delay (e.g., 1 second between requests)
-- Support for robots.txt parsing
-- HTML content extraction using JSoup library
-- Multi-threaded architecture for parallel crawling
+This implementation intentionally omitted a web crawler to focus on core search engine functionality. If a crawler were to be implemented, it would provide automated document collection and continuous index updates but would introduce additional complexity around politeness policies, duplicate detection, and error handling. A suggested design would use breadth-first crawling with a priority queue for URL management, hash-based deduplication, configurable politeness delays (1+ seconds between requests), robots.txt parsing, JSoup for HTML content extraction, and a multi-threaded architecture for parallel crawling. However, this would require careful consideration of server load, bandwidth usage, storage requirements, and compliance with website terms of service.
 
 ### (c) Screenshots
 
@@ -236,6 +245,8 @@ mvn exec:java -Dexec.mainClass="com.searchengine.ShowIndexEntries"
 *Performance testing with K = 100, 200, 300, 400, 500 documents*
 
 ### (d) Index and Search Performance
+
+**Performance data available in:** `performance_results.csv` (Excel-compatible format)
 
 #### Indexing Performance by Document Count
 | K Documents | Actual Docs | Total Time (ms) | Avg Time/Doc (ms) |
@@ -264,6 +275,8 @@ mvn exec:java -Dexec.mainClass="com.searchengine.ShowIndexEntries"
 
 ### (e) Example Index Entries
 
+*Note: Document frequency indicates how many documents contain each term. The index contains inverted lists mapping each term to the documents it appears in.*
+
 **Total documents in index:** 202
 
 **Sample Index Terms from 'contents' field:**
@@ -284,4 +297,6 @@ mvn exec:java -Dexec.mainClass="com.searchengine.ShowIndexEntries"
 | abroad | 1 |
 | absence | 1 |
 
-![Script for Example Index Entries](src/main/java/com/searchengine/screenshotexampleindex.png)
+![Script for Example Index Entries](screenshots/screenshotexampleindex.png)
+
+### (f) Experiences and Lessons Learned

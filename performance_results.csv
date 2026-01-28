@@ -1,14 +1,21 @@
-Category,Metric,Detail,Documents,Total Time (ms),Avg Time per Doc (ms)
-Indexing,K=100,Target Docs,100,141,1.41
-Indexing,K=200,Target Docs,200,42,0.21
-Indexing,K=300,Target Docs,300,41,0.14
-Indexing,K=400,Target Docs,400,42,0.11
-Indexing,K=500,Target Docs,500,46,0.09
-Search,Keyword,search,101,10,
-Search,Keyword,lucene,101,0,
-Search,Keyword,information,101,1,
-Search,Keyword,document,101,0,
-Search,Keyword,indexing,101,0,
-Operation,Initial Index (Part 1),,101,37,0.37
-Operation,Add Single Doc (Part 2),,1,29,29.00
-Operation,Add 100 Docs (Part 3),,100,34,0.34
+Indexing Performance by Document Count
+K Documents,Actual Docs,Total Time (ms),Avg Time per Doc (ms)
+100,100,141,1.41
+200,200,42,0.21
+300,300,41,0.14
+400,400,42,0.11
+500,500,46,0.09
+
+Search Performance
+Query Keyword,Documents Found,Search Time (ms)
+search,101,10
+lucene,101,0
+information,101,1
+document,101,0
+indexing,101,0
+
+Individual Operation Performance
+Operation,Documents,Time (ms),Avg per Doc (ms)
+Initial Index (Part 1),101,37,0.37
+Add Single Doc (Part 2),1,29,29.00
+Add 100 Docs (Part 3),100,34,0.34
