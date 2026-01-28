@@ -1,21 +1,17 @@
-Indexing Performance by Document Count
-K Documents,Actual Docs,Total Time (ms),Avg Time per Doc (ms)
-100,100,141,1.41
-200,200,42,0.21
-300,300,41,0.14
-400,400,42,0.11
-500,500,46,0.09
-
-Search Performance
-Query Keyword,Documents Found,Search Time (ms)
-search,101,10
-lucene,101,0
-information,101,1
-document,101,0
-indexing,101,0
-
-Individual Operation Performance
-Operation,Documents,Time (ms),Avg per Doc (ms)
-Initial Index (Part 1),101,37,0.37
-Add Single Doc (Part 2),1,29,29.00
-Add 100 Docs (Part 3),100,34,0.34
+section,metric_1,metric_2,metric_3,metric_4
+Indexing Performance,k_documents,actual_docs,total_time_ms,avg_time_per_doc_ms
+Indexing Performance,100,100,141,1.41
+Indexing Performance,200,200,42,0.21
+Indexing Performance,300,300,41,0.14
+Indexing Performance,400,400,42,0.11
+Indexing Performance,500,500,46,0.09
+Search Performance,query_keyword,documents_found,search_time_ms,
+Search Performance,search,101,10,
+Search Performance,lucene,101,0,
+Search Performance,information,101,1,
+Search Performance,document,101,0,
+Search Performance,indexing,101,0,
+Individual Operation Performance,operation,documents,time_ms,avg_per_doc_ms
+Individual Operation Performance,Initial Index (Part 1),101,37,0.37
+Individual Operation Performance,Add Single Doc (Part 2),1,29,29.00
+Individual Operation Performance,Add 100 Docs (Part 3),100,34,0.34
